@@ -1,0 +1,6 @@
+CREATE TABLE gold.dim_sellers AS
+SELECT DISTINCT
+    seller_id,
+    seller_city,
+    seller_state
+FROM silver.sellers_raw

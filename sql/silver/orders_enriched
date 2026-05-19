@@ -1,0 +1,21 @@
+CREATE TABLE silver.orders_enriched AS
+SELECT *,
+    
+    -- Delivery time (in days)
+    DATE_PART('day', delivered_ts - purchase_ts) AS delivery_time_days,
+
+    -- Delay flag (1 = late, 0 = on time, NULL = not delivered yet)
+    CASE 
+        WHEN delivered_ts IS NULL THEN NULL
+        WHEN delivered_ts > estimated_ts THEN 1
+        ELSE 0
+    END AS is_late_delivery,
+
+    -- How many days late (only if late)
+    CASE 
+        WHEN delivered_ts > estimated_ts 
+        THEN DATE_PART('day', delivered_ts - estimated_ts)
+        ELSE 0
+    END AS delay_days
+
+FROM silver.orders_clean;

@@ -1,0 +1,14 @@
+BRONZE LAYER (DATA INGESTION)
+
+Data was imported into PostgreSQL using DBeaver.
+No CREATE statements were used but instead the DBeaver GUI import functionality.
+The source files were loaded directly into the following tables:
+    - customers_raw
+    - orders_raw
+    - products_raw
+    - sellers_raw
+    - order_reviews_raw
+    - geolocation
+
+No transformations were applied at this stage.
+Data remains in raw format as received from source.

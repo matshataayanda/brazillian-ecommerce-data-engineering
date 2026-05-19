@@ -1,0 +1,14 @@
+CREATE TABLE gold.fact_orders AS
+SELECT
+    o.order_id,
+    o.customer_id,
+    o.purchase_ts,
+    o.delivered_ts,
+    o.estimated_ts,
+    o.delivery_time_days,
+    o.is_late_delivery,
+    o.delay_days,
+    r.review_score
+FROM silver.orders_enriched o
+LEFT JOIN silver.order_reviews_clean r
+    ON o.order_id = r.order_id
