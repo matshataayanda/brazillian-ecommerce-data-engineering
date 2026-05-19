@@ -14,7 +14,7 @@ The pipeline follows a 3-layer structure:
 - **Silver Layer**: Cleaned, standardized, and validated datasets
 - **Gold Layer**: Business-ready star schema (facts & dimensions)
 
-## 🧱 Data Model
+## Data Model
 
 - ## Fact Table
   - fact_orders
